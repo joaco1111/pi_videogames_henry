@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Funcionalidades from './Funcionalidades'
 import NavBar from "./NavBar";
-//import { Videogames } from './Videogames';
+//import { Videogames } from './Videogames'; VER!
 import Paginado from './Paginado';
 import { filterByGenres, filterBySource, orderBy, getAllVideogames } from "../redux/actions";
 
