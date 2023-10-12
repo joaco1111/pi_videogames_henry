@@ -10,6 +10,7 @@ import {
     GET_PLATFORMS
 } from '../actions'
 
+
 const initialState = {
     allVideogames : [],
     videogames : [],

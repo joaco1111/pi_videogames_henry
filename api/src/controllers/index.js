@@ -4,10 +4,10 @@ const {Videogame, Genres} = require('../db.js')
 //SOLICITUD PARA TRAERME MIS 100 VIDEOJUEGOS
 //A LA API
 const infoApi = async() => {
-    let url = `https://api.rawg.io/api/games?key=bc1bb0ae62664232a0e926209f30dd87`
+    let url = `https://api.rawg.io/api/games?key=0b7fb8c0aba047d3be896c3c0614c0c7`
     let videojuegos = []
     try {
-        for(let i=0; i<5; i++) { //con un for recorro mi API, ya que es un arreglo, 5 veces
+        for(let i=0; i<5; i++) { //con un for recorro mi API
             const respuesta = await axios.get(url) //realizo la peticion
             //en mi .data podemos encontrar dos propiedades, results que es es aquello que voy a mapear
             respuesta.data.results.map(v => { //a la respuesta/resultado lo mapeo
@@ -24,7 +24,6 @@ const infoApi = async() => {
             url = respuesta.data.next
         }
         return videojuegos
-
     } catch(e) {
         console.log(e)
     }
@@ -47,7 +46,7 @@ const infoDB = async () => {
     }
 }
 
-//UNO MIS DOS SOLICITUDES
+//UNO DE MIS DOS SOLICITUDES
 const infoTotal = async () => {
     //para unir mis dos solicitudes, guardo en una variable la ejecucion de mis funciones
     const apiData = await infoApi ();
@@ -61,7 +60,7 @@ const infoTotal = async () => {
 //SOLICITUD PARA MIS REQUEST POR QUERY
 //A MI API
 const nameApi = async (name) => {
-    const infoSearch = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=bc1bb0ae62664232a0e926209f30dd87`) 
+    const infoSearch = await axios.get(`https://api.rawg.io/api/games?search=0b7fb8c0aba047d3be896c3c0614c0c7`) 
     //console.log(infoSearch) //infoSearch = {{[]}} => me llega un objeto, que tiene una propiedad data y que a su vez tiene una propiedad results que es un []
 
     try {
@@ -87,7 +86,7 @@ const nameApi = async (name) => {
 //A MI ENDPOINT: https://api.rawg.io/api/games/{id}
 const idApi = async (id) => {
     try {
-        const rtaApi = await axios.get(`https://api.rawg.io/api/games/${id}?key=bc1bb0ae62664232a0e926209f30dd87`)
+        const rtaApi = await axios.get(`https://api.rawg.io/api/games/${id}?key=0b7fb8c0aba047d3be896c3c0614c0c7`)
         if(rtaApi) {
             const vgId = await rtaApi.data
             const info = {
@@ -145,7 +144,7 @@ const getVideogamesAsync = async () => {
       const response = await axios.get('YOUR_API_ENDPOINT_FOR_VIDEOGAMES');
       return response.data;
     } catch (error) {
-      console.error(error);
+      //console.error(error);
       throw error; 
     }
   };
@@ -155,7 +154,7 @@ const getVideogamesAsync = async () => {
       const response = await axios.get('YOUR_API_ENDPOINT_FOR_GENRES');
       return response.data;
     } catch (error) {
-      console.error(error);
+      //console.error(error);
       throw error;
     }
   };

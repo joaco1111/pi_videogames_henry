@@ -22,7 +22,8 @@ app.use((req, res, next) => {
 app.use('/api', routes);
 
 // Puerto en el que escucha la API
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000
+;
 
 app.listen(PORT, () => {
   console.log(`Servidor API en ejecución en el puerto ${PORT}`);

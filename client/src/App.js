@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
 import LandingPage from './components/LangingPage';
@@ -8,9 +8,7 @@ import Page404 from './components/Page404';
 
 function App() {
   return (
-    <Router> 
     <div className="App">
-      <div>H1</div>
       {/* <h1>Henry Videogames</h1> */}
       <Routes>
         <Route exact path={'/'} element={<LandingPage />}/>
@@ -20,7 +18,6 @@ function App() {
         <Route path={'*'} element={<Page404/>} />
       </Routes>
     </div>
-    </Router>
   );
 }
 
